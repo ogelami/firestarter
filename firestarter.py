@@ -21,12 +21,15 @@ class Firestarter(object):
 
     self.inputHandler.bind('g', 'spawn-nicehash-daggerhashimoto')
     self.inputHandler.bind('c', 'spawn-nicehash-cryptonight')
+    self.inputHandler.bind('t', 'spawn-nicehash-lyra2rev2')
 
     self.inputHandler.bind('h', 'dump-nicehash-daggerhashimoto')
     self.inputHandler.bind('v', 'dump-nicehash-cryptonight')
+    self.inputHandler.bind('y', 'dump-nicehash-lyra2rev2')
 
     self.inputHandler.bind('j', 'terminate-nicehash-daggerhashimoto')
     self.inputHandler.bind('b', 'terminate-nicehash-cryptonight')
+    self.inputHandler.bind('u', 'terminate-nicehash-lyra2rev2')
 
     self.inputHandler.bind('i', 'idlePause')
 
@@ -42,13 +45,13 @@ class Firestarter(object):
   #when user became inactive
   def onIdle(self):
     if not self.idlePause:
-      self.inputLogic('spawn-nicehash-daggerhashimoto')
+      self.inputLogic('spawn-nicehash-lyra2rev2')
       self.inputLogic('spawn-nicehash-cryptonight')
 
   #when user became active
   def onActive(self):
     if not self.idlePause:
-      self.inputLogic('terminate-nicehash-daggerhashimoto')
+      self.inputLogic('terminate-nicehash-lyra2rev2')
       self.inputLogic('terminate-nicehash-cryptonight')
 
   def inputLogic(self, inputFunction):

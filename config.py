@@ -20,6 +20,14 @@ pools = {
     'binaryPath' : 'python',
     'minerName' : 'obTest'
   },
+  'nicehash-lyra2rev2' : {
+    'host' : 'lyra2rev2.eu.nicehash.com',
+    'port' : '3347',
+    'password' : 'x',
+    'arguments' : '-a lyra2v2 -o stratum+tcp://###host###:###port### -b 4003 -O ###wallet###.###worker###:###password### -x socks://127.0.0.1:8123',
+    'binaryPath' : 'miner\\ccminer_tpruvot\\ccminer.exe',
+    'minerName' : 'ccminer_tpruvot'
+  },
   'nicehash-cryptonight' : {
     'host' : '37.58.117.214',
     'port' : '3355',

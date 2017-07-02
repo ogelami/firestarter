@@ -1,6 +1,6 @@
 from threading import Thread
 from queue import Queue
-import subprocess, config
+import subprocess, sys, config
 
 class Miner(Thread):
   def __init__(self, arguments, debug = False):
@@ -23,11 +23,9 @@ class Miner(Thread):
       self.stdOutQueue.put(line)
 
   def run(self):
+#    print("%s %s" % (self.binaryPath, self.binaryArguments))
     self.isRunning = True
-
     stdout = sys.stdout if self.debug else subprocess.PIPE
-    print("%s %s" % (self.binaryPath, self.binaryArguments))
-
     self.process = subprocess.Popen([self.binaryPath] + self.binaryArguments.split(' '), stdout=stdout, bufsize=1, stderr=subprocess.STDOUT, universal_newlines=True)
     
     if stdout == subprocess.PIPE:
@@ -69,9 +67,7 @@ class PartyPiper(Thread):
     for line in self.input:
       if self.queue.qsize() > self.maxQueueLength:
         self.queue.get(False)
-
       self.queue.put(line)
-
     print('Piper down.')
 
   def dump(self):
