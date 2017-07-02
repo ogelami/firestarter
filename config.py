@@ -28,6 +28,14 @@ pools = {
     'binaryPath' : 'miner\\ccminer_tpruvot\\ccminer.exe',
     'minerName' : 'ccminer_tpruvot'
   },
+  'nicehash-equihash' : {
+    'host' : 'equihash.eu.nicehash.com',
+    'port' : '3357',
+    'password' : 'x',
+    'arguments' : '-l ###host###:###port### -u ###wallet###.###worker###',
+    'binaryPath' : 'miner\\nheqminer_v0.4b\\nheqminer.exe',
+    'minerName' : 'nheqminer_v0.4b'
+  },
   'nicehash-cryptonight' : {
     'host' : '37.58.117.214',
     'port' : '3355',
