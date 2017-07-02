@@ -32,12 +32,12 @@ pools = {
     'host' : 'equihash.eu.nicehash.com',
     'port' : '3357',
     'password' : 'x',
-    'arguments' : '-l ###host###:###port### -u ###wallet###.###worker###',
+    'arguments' : '-l ###host###:###port### -u ###wallet###.###worker### -cd 0',
     'binaryPath' : 'miner\\nheqminer_v0.4b\\nheqminer.exe',
     'minerName' : 'nheqminer_v0.4b'
   },
   'nicehash-cryptonight' : {
-    'host' : '37.58.117.214',
+    'host' : 'cryptonight.eu.nicehash.com',
     'port' : '3355',
     'password' : 'x',
     'arguments' : '-a cryptonight -o stratum+tcp://###host###:###port### -b 4002 -O ###wallet###.###worker###:###password### -x socks://127.0.0.1:8123',
