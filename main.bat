@@ -1,3 +1,3 @@
 @echo off
 
-python firestarter.py
+python main.py

@@ -1,6 +1,7 @@
 worker = 'modermodemet'
 wallet = '1ChM1MDWwH2F58F923oq3e8bVKpFtTVS3L'
-maxIdleTime = 5
+maxIdleTime = 50
+stdOutBufferRows = 50
 
 pools = {
   'nicehash-daggerhashimoto' : {
