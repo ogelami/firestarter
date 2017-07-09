@@ -1,10 +1,8 @@
-#from Firestarter import Firestarter
+#!/usr/bin/env python3
 
+#from Firestarter import Firestarter
 #firestarter = Firestarter()
 #firestarter.start()
-
-
-
 
 
 #from IdleHandler import IdleHandler
@@ -17,18 +15,15 @@
 #  sleep(1)
 
 #from Miner import Ccminer
-
+#from Miner import Miner
 from threading import Thread
+#from Miner import ccminer
+from Miner import *
+import config
 
-class Miner(Thread):
-  def __init__(self, **keywordArguments):
-    super(Miner, self).__init__()
-    
-class y(Minerx):
-  """docstring for y"""
-  def __init__(self):
-    super(y, self).__init__(aids = 'lol')
+x = minerHandler.getMiner('docker_cpuminer_opt')(config.miner['docker_cpuminer_opt'], 'cryptonight', config.pools['nicehash']['cryptonight'])
+x.start()
 
-k = y()    
+#k = ccminer(1,2,3,4)
 
-print(1)
+#print(1)
