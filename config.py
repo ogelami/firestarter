@@ -1,6 +1,6 @@
 worker = 'modermodemet'
 wallet = '1ChM1MDWwH2F58F923oq3e8bVKpFtTVS3L'
-maxIdleTime = 50
+maxIdleTime = 5
 stdOutBufferRows = 50
 
 ## hash template
