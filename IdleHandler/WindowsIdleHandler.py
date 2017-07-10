@@ -1,9 +1,9 @@
 from ctypes import Structure, c_uint, sizeof, windll, byref
 from IdleHandler import IdleHandler
 
-class WindowsIdleHandler(object):
-	def __init__(self):
-		super(WindowsIdleHandler, self).__init__()
+class WindowsIdleHandler(IdleHandler):
+	def __init__(self, idleCallback, activeCallback):
+		super(WindowsIdleHandler, self).__init__(idleCallback, activeCallback)
 
 	class LASTINPUTINFO(Structure):
 		_fields_ = [
