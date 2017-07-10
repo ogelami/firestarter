@@ -49,7 +49,7 @@ pools = {
 miner = {
   'docker_cpuminer_opt' : {
     'binaryPath' : 'docker',
-    'hashSupport' : [
+    'algorithmSupport' : [
       'argon2',
       'axiom',
       'bastion',
@@ -115,7 +115,7 @@ miner = {
   },
   'excavator' : {
     'binaryPath' : 'miner/excavator/excavator.exe',
-    'hashSupport' : [
+    'algorithmSupport' : [
       'equihash',
       'sia',
       'lbry',
@@ -128,12 +128,12 @@ miner = {
   },
   'ethminer' : {
     'binaryPath' : 'miner/ethminer/ethminer.exe',
-    'hashSupport' : ['daggerhashimoto'],
+    'algorithmSupport' : ['daggerhashimoto'],
     'hardwareSupport' : ['CUDA', 'OpenCL']
   },
   'ccminer' : {
     'binaryPath' : 'miner/ccminer_tpruvot/ccminer.exe',
-    'hashSupport' : [
+    'algorithmSupport' : [
       'blake',
       'blake2s',
       'blakecoin',

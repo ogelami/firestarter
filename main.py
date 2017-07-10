@@ -20,9 +20,17 @@ from threading import Thread
 #from Miner import ccminer
 from Miner import *
 import config
+from time import sleep
 
-x = minerHandler.getMiner('docker_cpuminer_opt')(config.miner['docker_cpuminer_opt'], 'cryptonight', config.pools['nicehash']['cryptonight'])
-x.start()
+m = minerHandler.getMiner('docker_cpuminer_opt')(config.miner['docker_cpuminer_opt'], config.pools['nicehash']['cryptonight'])
+m.setAlgorithm('cryptonight')
+#m.start()
+#sleep(5)
+print('shutting down')
+#m.shutdown()
+#print('sleeping 5')
+#sleep(5)
+print('done')
 
 #k = ccminer(1,2,3,4)
 
