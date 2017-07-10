@@ -1,24 +1,24 @@
 from IdleHandler import IdleHandler
 from glob import glob
-from datetime import datetime
 from threading import Thread
 import datetime
 
 class UnixIdleHandler(IdleHandler):
-	def __init__(self):
-		super(UnixIdleHandler, self).__init__()
+	def __init__(self, idleCallback, activeCallback):
+		super(UnixIdleHandler, self).__init__(idleCallback, activeCallback)
 		keyboardDevices = glob('/dev/input/by-id/*-kbd')
+		self.lastKeyboardEvent = datetime.datetime.utcnow().timestamp()
 		for keyboardDevice in keyboardDevices:
-			thread = Thread(target = self.waitForInput, args=(self.tick), daemon = True)
+			thread = Thread(target = self.waitForInput, args = (keyboardDevice, self.tick), daemon = True)
 			thread.start()
 	
 	def getIdleTime(self):
-		return 0
+		return datetime.datetime.utcnow().timestamp() - self.lastKeyboardEvent
 
 	def tick(self):
-		print(datetime.utcnow().timestamp())
+		self.lastKeyboardEvent = datetime.datetime.utcnow().timestamp()
 
-	def waitForInput(self, callback)
+	def waitForInput(self, keyboardDevice, callback):
 		while True:
 			with open(keyboardDevice, 'rb') as fileHandler:
 				fileHandler.read(1)
