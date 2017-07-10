@@ -1,7 +1,8 @@
 from threading import Thread
 from queue import Queue
-import subprocess, sys, glob, signal, config
+import subprocess, sys, signal, config
 from os.path import dirname, basename, isfile
+from glob import glob
 import os
 
 class Miner(Thread):
@@ -117,7 +118,7 @@ class MinerHandler(object):
   def __init__(self):
     self.minerClassDictionary = {}
 
-    modules = glob.glob(dirname(__file__) + "/*.py")
+    modules = glob(dirname(__file__) + "/*.py")
 
     for module in modules:
       moduleName = basename(module)[:-3]
