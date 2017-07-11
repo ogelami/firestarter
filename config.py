@@ -25,7 +25,7 @@ pools = {
       'username' : '###wallet###.###worker###',
       'password' : 'x'
     },
-    'lyra2rev2' : {
+    'lyra2v2' : {
       'host' : 'lyra2rev2.eu.nicehash.com',
       'port' : '3347',
       'username' : '###wallet###.###worker###',
@@ -48,7 +48,7 @@ pools = {
 
 miner = {
   'docker_cpuminer_opt' : {
-    'binaryPath' : 'docker',
+    'binaryPath' : ['docker'],
     'algorithmSupport' : [
       'argon2',
       'axiom',
@@ -114,12 +114,12 @@ miner = {
     'hardwareSupport' : ['cpu']
   },
   'ethminer' : {
-    'binaryPath' : 'miner/ethminer/ethminer.exe',
+    'binaryPath' : ['bin', 'ethminer', 'ethminer.exe'],
     'algorithmSupport' : ['daggerhashimoto'],
     'hardwareSupport' : ['CUDA', 'OpenCL']
   },
   'ccminer' : {
-    'binaryPath' : 'miner/ccminer_tpruvot/ccminer.exe',
+    'binaryPath' : ['bin', 'ccminer_tpruvot', 'ccminer.exe'],
     'algorithmSupport' : [
       'blake',
       'blake2s',

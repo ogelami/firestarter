@@ -22,9 +22,9 @@ from Miner import *
 import config
 from time import sleep
 
-m = minerHandler.getMiner('docker_cpuminer_opt')(config.miner['docker_cpuminer_opt'], config.pools['nicehash']['cryptonight'])
-m.setAlgorithm('cryptonight')
-#m.start()
+m = minerHandler.getMiner('ccminer')(config.pools['nicehash']['lyra2v2'], True)
+m.setAlgorithm('lyra2v2')
+m.start()
 #sleep(5)
 print('shutting down')
 #m.shutdown()

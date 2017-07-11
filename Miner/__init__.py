@@ -4,15 +4,20 @@ import subprocess, sys, signal, config
 from os.path import dirname, basename, isfile
 from glob import glob
 import os
+import config
 
 class Miner(Thread):
-  def __init__(self, minerConfig, serverInformation, debug = False):
+  def __init__(self, minerClassName, serverInformation, debug = False):
     super(Miner, self).__init__()
+
+    if not minerClassName in config.miner:
+      raise NotImplementedError('%s not not implemented.' % minerClassName)
+
     self.daemon = False
     self.isRunning = False
     self.binaryArguments = False
     self.debug = debug
-    self.minerConfig = minerConfig
+    self.minerConfig = config.miner[minerClassName]
     self.serverInformation = serverInformation
 
   def setBinaryArguments(self, argumentQuery):
@@ -48,9 +53,11 @@ class Miner(Thread):
     self.isRunning = True
 
     stdout = sys.stdout if self.debug else subprocess.PIPE
-    execute = [self.minerConfig['binaryPath']] + self.binaryArguments.split(' ')
+    execute = [os.path.join(*self.minerConfig['binaryPath'])] + self.binaryArguments.split(' ')
 
-    self.process = subprocess.Popen(execute, stdout=stdout, bufsize=1, stderr=subprocess.STDOUT, universal_newlines=True, preexec_fn=os.setsid)
+    #might want to pass this when possible(not on win32)
+    #, preexec_fn=os.setsid
+    self.process = subprocess.Popen(execute, stdout=stdout, bufsize=1, stderr=subprocess.STDOUT, universal_newlines=True)
     
     if stdout == subprocess.PIPE:
       self.processQueuerThread = Thread(target=self.stdQueuer, args=(self.process.stdout, self.stdOutEvent), daemon = True)
