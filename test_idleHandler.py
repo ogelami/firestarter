@@ -8,7 +8,9 @@ if platformName == 'Linux':
   from IdleHandler.UnixIdleHandler import UnixIdleHandler as IdleHandler
 elif platformName == 'Windows':
   from IdleHandler.WindowsIdleHandler import WindowsIdleHandler as IdleHandler
-  
+elif platformName == 'Darwin':
+	from IdleHandler.OsxIdleHandler import OsxIdleHandler as IdleHandler
+
 from time import sleep
 
 def x():
