@@ -113,19 +113,6 @@ miner = {
     ],
     'hardwareSupport' : ['cpu']
   },
-  'excavator' : {
-    'binaryPath' : 'miner/excavator/excavator.exe',
-    'algorithmSupport' : [
-      'equihash',
-      'sia',
-      'lbry',
-      'daggerhashimoto',
-      'pascal',
-      'blake2s',
-      'decred'
-    ],
-    'hardwareSupport' : []
-  },
   'ethminer' : {
     'binaryPath' : 'miner/ethminer/ethminer.exe',
     'algorithmSupport' : ['daggerhashimoto'],
